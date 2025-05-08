@@ -2,12 +2,46 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
+    <link rel="stylesheet" href="/src/style.css">
   </head>
-  <body>
-    <div class="" id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
+  <body class="bg-gradient-to-r from-blue-500 to-blue-900">
+      <div class="">
+        <!-- top part -->
+        <div class="border rounded-lg flex gap-2 items-center m-8 ">
+          <input class="ml-5" type="text">
+          <button class="btn border">Search</button>
+        </div>
+
+        <!-- bottom part -->
+        <div class="flex flex-column ">
+          <!-- weather image -->
+          <div class="w-1/2">
+            <img class="w-40 h-40"  src="/clear.png" alt="">
+          </div>
+          <!-- weather detail -->
+          <div class="w-1/2 items-center">
+            <div class="text-6xl font-bold" id="title">26°C</div>
+            <div class="text-2xl " id="weatherDetail">Clear</div>
+            <div  class="text-4xl" id="location">Bhaktapur</div>
+            <div class="flex flex-column gap-5 md:flex-row">
+              <div class="flex">
+                <div class="w-1/2">
+                  <img class="w-8 h-8"  src="/humidity.png" alt="">
+                </div>
+                <div class="w-1/2" id="humidity">60%</div>
+              </div>
+              <div class="flex">
+                <div class="w-1/2">
+                  <img class="w-8 h-8" src="/wind.png" alt="">
+                </div>
+                <div class="w-1/2" id="wspeed">12m/s</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
   </body>
 </html>
