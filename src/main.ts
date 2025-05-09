@@ -46,7 +46,7 @@ async function getLocationName(lat: number, lon:number){
     // getWeatherInfo(cityName);
 
     //right now for my current location it returns Madhyapur Thimi Municipality which when passed through getWeatherInfo returns 'city not found' 
-    //so i have only sent thimi to that function. if using in future from another location just pass the cityName
+    //so i have only sent thimi to that function. if using from another location just pass the cityName
     getWeatherInfo(cityName.split(' ')[1]);
     
 
