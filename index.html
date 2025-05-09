@@ -5,43 +5,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
     <link rel="stylesheet" href="/src/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   </head>
-  <body class="bg-gradient-to-r from-blue-500 to-blue-900">
-      <div class="">
-        <!-- top part -->
-        <div class="border rounded-lg flex gap-2 items-center m-8 ">
-          <input class="ml-5" type="text">
-          <button class="btn border">Search</button>
-        </div>
+  <body class="bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 min-h-screen p-4 md:p-8 font-[Poppins]">
+    <div class="max-w-4xl mx-auto">
+      <!-- App Header -->
+      <header class="text-center mb-8">
+        <h1 class="text-3xl md:text-4xl font-bold text-white mb-2 tracking-wide">Weather Forecast</h1>
+      </header>
 
-        <!-- bottom part -->
-        <div class="flex flex-column ">
-          <!-- weather image -->
-          <div class="w-1/2">
-            <img class="w-40 h-40"  src="/clear.png" alt="">
-          </div>
-          <!-- weather detail -->
-          <div class="w-1/2 items-center">
-            <div class="text-6xl font-bold" id="title">26°C</div>
-            <div class="text-2xl " id="weatherDetail">Clear</div>
-            <div  class="text-4xl" id="location">Bhaktapur</div>
-            <div class="flex flex-column gap-5 md:flex-row">
-              <div class="flex">
-                <div class="w-1/2">
-                  <img class="w-8 h-8"  src="/humidity.png" alt="">
-                </div>
-                <div class="w-1/2" id="humidity">60%</div>
+      <!-- Search Section -->
+      <div class="bg-white/10 backdrop-blur-md rounded-2xl p-4 md:p-6 mb-8 shadow-lg transition-transform hover:shadow-xl">
+        <div class="flex flex-col md:flex-row gap-3">
+          <input 
+            class="flex-1 bg-white/20 text-white placeholder-blue-200 px-4 py-3 rounded-xl border border-white/20 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all" 
+            type="text" 
+            placeholder="Search for a city...">
+          <button class="bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium px-6 py-3 rounded-xl shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+            Search
+          </button>
+        </div>
+      </div>
+
+      <!-- Weather Card -->
+      <div class="bg-gradient-to-br from-blue-600/30 to-purple-600/30 backdrop-blur-lg rounded-3xl overflow-hidden shadow-2xl">
+        <!-- Current Weather -->
+        <div class="p-6 md:p-8">
+          <div class="flex flex-col md:flex-row items-center">
+            <!-- Left Column -->
+            <div class="w-full md:w-1/2 flex justify-center md:justify-end">
+              <div class="relative">
+                <img class="w-40 h-40 object-contain animate-pulse" src="/clear.png" alt="Weather Icon">
               </div>
-              <div class="flex">
-                <div class="w-1/2">
-                  <img class="w-8 h-8" src="/wind.png" alt="">
-                </div>
-                <div class="w-1/2" id="wspeed">12m/s</div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="w-full md:w-1/2 text-center md:text-left mb-6 md:mb-0">
+              <h2 class="text-2xl md:text-3xl font-semibold text-white mb-1" id="location">Bhaktapur</h2>
+              <p class="text-blue-200 text-sm mb-4">Tuesday, 14 May</p>
+              
+              <div class="flex items-center justify-center md:justify-start mb-4">
+                <span class="text-6xl md:text-7xl font-bold text-white" id="title">26°</span>
+                <span class="text-xl text-blue-200 ml-2" id="weatherDetail">Clear</span>
+              </div>
+              
+              <div class="inline-flex bg-white/10 rounded-full px-4 py-2 text-blue-100">
+                <span>Feels like: 28°</span>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- Weather Details -->
+        <div class="bg-white/5 backdrop-blur-md">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-6">
+            <div class="flex flex-col items-center bg-white/10 rounded-xl p-3 transition-all hover:bg-white/20">
+              <img class="w-8 h-8 mb-2" src="/humidity.png" alt="Humidity Icon">
+              <span class="text-blue-200 text-sm">Humidity</span>
+              <span class="text-white font-medium" id="humidity">60%</span>
+            </div>
+            
+            <div class="flex flex-col items-center bg-white/10 rounded-xl p-3 transition-all hover:bg-white/20">
+              <img class="w-8 h-8 mb-2" src="/wind.png" alt="Wind Icon">
+              <span class="text-blue-200 text-sm">Wind Speed</span>
+              <span class="text-white font-medium" id="wspeed">12 m/s</span>
+            </div>
+            
+            <div class="flex flex-col items-center bg-white/10 rounded-xl p-3 transition-all hover:bg-white/20">
+              <svg class="w-8 h-8 mb-2 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"></path>
+              </svg>
+              <span class="text-blue-200 text-sm">UV Index</span>
+              <span class="text-white font-medium">6.5</span>
+            </div>
+            
+            <div class="flex flex-col items-center bg-white/10 rounded-xl p-3 transition-all hover:bg-white/20">
+              <svg class="w-8 h-8 mb-2 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+              <span class="text-blue-200 text-sm">Pressure</span>
+              <span class="text-white font-medium">1013 hPa</span>
+            </div>
+          </div>
+        </div>
       </div>
+      
+      <!-- Forecast (Optional) -->
+      <div class="mt-8 grid grid-cols-2 md:grid-cols-5 gap-4">
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center transition-transform hover:scale-105">
+          <p class="text-blue-200 text-sm">Wed</p>
+          <img class="w-12 h-12 mx-auto my-2" src="/clear.png" alt="">
+          <p class="text-white font-medium">28°</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center transition-transform hover:scale-105">
+          <p class="text-blue-200 text-sm">Thu</p>
+          <img class="w-12 h-12 mx-auto my-2" src="/clear.png" alt="">
+          <p class="text-white font-medium">27°</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center transition-transform hover:scale-105">
+          <p class="text-blue-200 text-sm">Fri</p>
+          <img class="w-12 h-12 mx-auto my-2" src="/clear.png" alt="">
+          <p class="text-white font-medium">29°</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center transition-transform hover:scale-105">
+          <p class="text-blue-200 text-sm">Sat</p>
+          <img class="w-12 h-12 mx-auto my-2" src="/clear.png" alt="">
+          <p class="text-white font-medium">26°</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center transition-transform hover:scale-105">
+          <p class="text-blue-200 text-sm">Sun</p>
+          <img class="w-12 h-12 mx-auto my-2" src="/clear.png" alt="">
+          <p class="text-white font-medium">25°</p>
+        </div>
       </div>
+    </div>
   </body>
 </html>
