@@ -87,9 +87,8 @@ function getWeather(){
 search.onclick = ()=>getWeather();
 
 function changeIcon(json: { weather: { main: string; }[]; }){
-  const weatherCondition:string = json.weather[0].main ;
-  body.classList.remove("bg-gradient-to-br", "from-sky-200", "via-sky-500", "to-blue-400");
-  
+  const weatherCondition:string = json.weather[0].main;
+  body.classList.remove("bg-gradient-to-br", "from-sky-800", "from-sky-200", "from-gray-200", "from-gray-300", "from-gray-400", "from-gray-600", "via-sky-500", "via-sky-900", "via-gray-400", "via-gray-500", "via-gray-600", "via-gray-800", "to-blue-400", "to-gray-600", "to-gray-700", "to-gray-800", "to-gray-900");
   switch(weatherCondition){
     case 'Clear':
       weatherIcon.src = "/clear.png";
@@ -115,9 +114,12 @@ function changeIcon(json: { weather: { main: string; }[]; }){
       weatherIcon.src = "/thunderstorm.png";
       body.classList.add("bg-gradient-to-br", "from-gray-600", "via-gray-800", "to-gray-900");
       break;
-    default:
+    case 'Haze':
       weatherIcon.src = "/haze.png";
       body.classList.add("bg-gradient-to-br", "from-gray-600", "via-gray-800", "to-gray-900");
       break;
+    default:
+      weatherIcon.src = "/clear.png";
+      body.classList.add("bg-gradient-to-br", "from-sky-200", "via-sky-500", "to-blue-400");
   }
 }
