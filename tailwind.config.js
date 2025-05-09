@@ -7,8 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        sunny: "#000000",
-        cloudy: "#111111",
+        
       },
     },
   },
