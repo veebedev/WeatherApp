@@ -1,6 +1,6 @@
 import './style.css'
-// const api_key = import.meta.env.VITE_API_KEY; 
-const api_key = 'ff5b29f4f9c8a46d01ef96c66b2425dd'; 
+const api_key = import.meta.env.VITE_API_KEY; 
+// const api_key = 'ff5b29f4f9c8a46d01ef96c66b2425dd'; 
 const now = new Date();
 const date = now.getDate();
 const weekday = new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(now);
@@ -43,11 +43,11 @@ async function getLocationName(lat: number, lon:number){
     }
     const json = await response.json();
     const cityName = json[0].name;
-    // getWeatherInfo(cityName);
+    getWeatherInfo(cityName);
 
     //right now for my current location it returns Madhyapur Thimi Municipality which when passed through getWeatherInfo returns 'city not found' 
     //so i have only sent thimi to that function. if using from another location just pass the cityName
-    getWeatherInfo(cityName.split(' ')[1]);
+    // getWeatherInfo(cityName.split(' ')[1]);
     
 
   }catch (error:unknown) {
